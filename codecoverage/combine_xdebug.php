@@ -16,7 +16,7 @@
         $i++;
         echo "Processing coverage ($i/$count) from $coverage_file". PHP_EOL;
         $codecoverageData = json_decode(file_get_contents($coverage_file), JSON_OBJECT_AS_ARRAY);
-        $test_name = str_ireplace(basename($coverage_file,".json"),"coverage-", "");
+        $test_name = str_ireplace("coverage-", "", basename($coverage_file,".json"));
         $final_coverage->append($codecoverageData, $test_name);
     }
 
